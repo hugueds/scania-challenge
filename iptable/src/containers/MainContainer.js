@@ -9,13 +9,28 @@ const styles = {
   }
 }
 
-function MainContainer(props) {
-  const { classes } = props;  
+class MainContainer extends React.Component {
+  constructor(props) {
+    super(props);    
+  }
+
+  
+
+render() {
   return (
-    <div className={classes.root}>
-      <IPTable/>
-    </div>
+    <IPTable test={"IP"} />
   );
 }
+}
+
+
+// function MainContainer(props) {
+//   const { classes } = props;  
+//   return (
+//     <div className={classes.root}>
+//       <IPTable test={teste}/>
+//     </div>
+//   );
+// }
 
 export default withStyles(styles)(MainContainer);
