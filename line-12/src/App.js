@@ -9,7 +9,7 @@ import GeoService from './services/geoService';
 
 import './App.css';
 
-const updateTime = process.env.REACT_APP_UPDATE_TIME || 5000;
+const updateTime = process.env.REACT_APP_UPDATE_TIME || 3000;
 
 class App extends React.Component {
 

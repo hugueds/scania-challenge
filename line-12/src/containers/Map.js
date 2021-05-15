@@ -3,10 +3,11 @@ import {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
-    Marker,
+    Marker
 } from "react-google-maps";
 
-
+// const bus = '../favicon.png';
+const gmkey = 'AIzaSyCm_DEhKDzjQjoBOBbbyhRhMLyRFCY8QPM';
 
 const Map = (props) => {
 
@@ -14,7 +15,7 @@ const Map = (props) => {
         <MapWithAMarker
             coord={props.coord}
             isMarkerShown
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm_DEhKDzjQjoBOBbbyhRhMLyRFCY8QPM&v=3.exp&libraries=geometry,drawing,places"
+            googleMapURL={"https://maps.googleapis.com/maps/api/js?key=" + gmkey + "&v=3.exp&libraries=geometry,drawing,places"}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `72.5vh` }} />}
             mapElement={<div style={{ height: `100%` }} />}
@@ -25,17 +26,10 @@ const Map = (props) => {
 
 const MapWithAMarker = withScriptjs(withGoogleMap(props => {
 
-    // pegar GeoLoc da Scania
-    // const lat = -23.6843437; // TEST 
-    // const lng = -46.5105444; // TEST
-    // const [coord] = useState({ lat: props.latitude || lat, lng: props.longitude || lng }); 
-
     const coord = {
         lat: props.coord.latitude || 0,
         lng: props.coord.longitude || 0
     }
-
-    console.log(coord)
 
     return (
 
@@ -44,8 +38,8 @@ const MapWithAMarker = withScriptjs(withGoogleMap(props => {
             defaultCenter={coord}
             center={coord}
         >
-            <Marker position={coord} />
-
+            <Marker position={coord} opacity={0.7} />
+            
         </GoogleMap>
     );
 }
